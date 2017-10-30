@@ -117,6 +117,9 @@ a:link, a:visited, a:hover, a:active {
 .pic_left,.pic_right{
   width: 45%;
 }
+table td{
+  text-align: center;
+}
 
 
 

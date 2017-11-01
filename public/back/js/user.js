@@ -1,16 +1,6 @@
-/**
- * Created by HUCC on 2017/10/29.
- */
-
 $(function () {
-
-
-    //发送ajax请求，获取后台的数据
     var currentPage = 1;
-    var pageSize = 5;
-
-
-    //去后台获取数据，拿的currentPage页的数据
+    var pageSize = 8;
     function render() {
         $.ajax({
             type:"get",
@@ -22,29 +12,43 @@ $(function () {
             success:function (data) {
                 console.log(data);
                 var html = template("tpl", data);
-                console.log(html);
                 $("tbody").html(html);
-
-
-                //分页功能
                 $("#paginator").bootstrapPaginator({
-                    bootstrapMajorVersion:3,//指定bootstrap的版本
-                    currentPage: currentPage,//指定了当前是第几页
+                    bootstrapMajorVersion:3,
+                    currentPage:currentPage,
                     size:"small",
                     totalPages: Math.ceil(data.total/pageSize),
-                    onPageClicked:function(event, originalEvent, type,page){
-                        //为按钮绑定点击事件 page:当前点击的按钮值
+                    onPageClicked:function (event, originalEvent, type,page) {
                         currentPage = page;
                         render();
                     }
-
-                });
-
+                })
             }
-        });
+        })
     }
+
     render();
-
-
+   $("tbody").on("click",".btn",function () {
+      $("#changModal").modal("show");
+       var id = $(this).parent().data("id");
+       var isDelete = $(this).parent().data("isDelete");
+       isDelete = isDelete === 1 ? 0 : 1;
+       $(".modal_confirm").off().on("click",function () {
+            $.ajax({
+                type: "post",
+                url: "/user/updateUser",
+                data: {
+                    id:id,
+                    isDelete:isDelete
+                },
+                success: function (data) {
+                    if (data.success){
+                        $("#changModal").modal("hide");
+                        render();
+                    }
+                }
+            });
+       });
+   });
 
 });

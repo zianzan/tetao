@@ -1,4 +1,4 @@
-if(location.href.indexOf("login.html") < 0 ){
+if(location.href.indexOf("login.html") == -1 ){
     $.ajax({
         type:"get",
         url:"/employee/checkRootLogin",
@@ -30,9 +30,9 @@ $(".icon_menu").on("click",function () {
 $(".classify").on("click",function () {
     $(".child").slideToggle();
 });
-$(".nav ul>li>a").on("click",function () {
-    $(this).addClass("now").parent().siblings().children().removeClass("now");
-});
+// $(".nav a").on("click",function () {
+//     $(this).toggleClass("now");
+// });
 $(".icon_logout").on("click", function () {
     $("#logoutModal").modal("show");
 });

@@ -1,0 +1,17 @@
+.lt_goods{
+  width: 100%;
+  height: 30px;
+  background-color: #eee;
+  margin-top: 5px;
+}
+.lt_goods a{
+  display: inline-block;
+  width: 24%;
+  font-size: 12px;
+ text-align: center;
+  color: #666;
+  line-height: 30px;
+}
+.lt_goods a.now {
+  color: darkorange;
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>参数列表的封装</title>
+</head>
+<body>
+<script>
+  var tools = {
+    getParameObj: function () {
+      var search = location.search;
+      search = search.slice(1);
+      var searchArr = search.split("&");
+      var searchObj = {};
+      for (var i = 0; i < searchArr.length; i++) {
+        var key = searchArr[i].split("=")[0];
+        var value = decodeURI(searchArr[i].split("=")[1]);
+        searchObj[key] = value;
+      }
+      return searchObj;
+    },
+    getParam: function (key) {
+      return this.getParameObj()[key];
+    }
+  };
+console.log(tools.getParam("desc"));
+</script>
+</body>
+</html>

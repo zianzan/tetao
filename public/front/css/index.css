@@ -1,15 +1,12 @@
-@charset "UTF-8";
-
-.lt_nav {
+.lt_nav{
   padding: 10px;
 }
-
-.lt_nav li {
-  width: 33.33%;
+.lt_nav li{
+  width: 33.3%;
   float: left;
-}
 
-.lt_nav img {
-  width: 100%;
+}
+.lt_nav img{
   display: block;
+  width: 100%;
 }

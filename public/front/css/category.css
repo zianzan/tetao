@@ -1,0 +1,40 @@
+.lt_category_l {
+  width: 90px;
+  height: 100%;
+  float: left;
+  background-color: pink;
+  position: relative;
+}
+.lt_category_l li{
+  border: 1px solid #666;
+  width: 100%;
+  height: 60px;
+  text-align: center;
+ line-height: 60px;
+  border-bottom: none;
+}
+.lt_category_l li:last-child{
+  border-bottom: 1px solid #666;
+}
+.lt_category_l li.now {
+  background-color: #fff;
+  border-right: none;
+}
+
+.lt_category_r {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+
+}
+.lt_category_r li{
+  margin: 10px;
+  float: left;
+  width: 29%;
+  height: 120px;
+  text-align: center;
+}
+.lt_category_r li img{
+  width: 100%;
+  height: 100%;
+}
